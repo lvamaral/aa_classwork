@@ -1,0 +1,23 @@
+<h2>Edit SubReddit</h2>
+
+<br>
+
+<form action="/subs/<%=@sub.id%>" method="POST">
+
+  <input type="hidden" name="_method" value="PATCH">
+
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+
+  <label for="title">Title</label>
+  <input type="text" name="sub[title]" value="<%=@sub.title%>" id="title">
+
+  <br><br>
+
+  <label for="description">Description</label>
+  <textarea name="sub[description]" value="<%=@sub.description%>" id="description"></textarea>
+
+  <br><br>
+
+  <input type="submit" value="Update Sub">
+
+</form>
