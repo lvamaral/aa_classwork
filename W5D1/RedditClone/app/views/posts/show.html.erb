@@ -1,0 +1,19 @@
+<h2><%=@post.title%> by <%=@post.author.username%></h2>
+
+<br>
+
+<%= link_to "Link", @post.url %>
+
+<br><br>
+
+Content: <%= @post.content %>
+
+<br><br>
+
+<% if @post.author_id == current_user.id %>
+  <%= link_to "Edit Post", edit_post_url %>
+<% end %>
+
+<br><br>
+
+<%= link_to "SubReddit Index", subs_url %><br><br>

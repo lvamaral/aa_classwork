@@ -10,4 +10,14 @@
 
 <br>
 
+<%= link_to "Add Post", new_post_url %>
+
+<br>
+
+<% @posts.each do |post| %>
+  <li><%= link_to post.title, post_url(@post) %></li>
+<% end %>
+
+<br>
+
 <%= link_to "SubReddit Index", subs_url %><br><br>
