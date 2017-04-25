@@ -4,8 +4,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.new(post_params)
-    @post.author_id = current_user.id
+    @post = Post.new(post_params)
 
     if @post.save
       redirect_to post_url(@post)
@@ -24,6 +23,7 @@ class PostsController < ApplicationController
   end
 
   def update
+
     @post = current_user.posts.find(params[:id])
 
     if @post.update(post_params)
@@ -41,6 +41,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :url, :content, :user_id, :sub_id)
+    params.require(:post).permit(:url, :title, :content, :author_id, sub_ids: [])
   end
 end

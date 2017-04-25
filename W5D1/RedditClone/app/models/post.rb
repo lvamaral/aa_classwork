@@ -1,13 +1,13 @@
 class Post < ApplicationRecord
-  validates :title, :sub, :author, presence: true
+  validates :title, :author, presence: true
+  validates :subs, presence: { message: "must have at least one sub" }
 
-  belongs_to :sub,
-  primary_key: :id,
-  foreign_key: :sub_id,
-  class_name: :Sub
+  has_many :post_subs, inverse_of: :post, dependent: :destroy
+  has_many :subs, through: :post_subs, source: :sub
 
   belongs_to :author,
   primary_key: :id,
   foreign_key: :author_id,
-  class_name: :User
+  class_name: :User,
+  inverse_of: :posts
 end

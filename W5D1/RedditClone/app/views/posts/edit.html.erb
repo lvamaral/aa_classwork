@@ -8,7 +8,7 @@
 
   <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
 
-  <input type="hidden" name="post[sub_id]" value="<%=@sub.id%>">
+  <input type="hidden" name="post[author_id]" value="<%=current_user.id%>">
 
   <label for="title">Title</label>
   <input type="text" name="post[title]" value="<%=@post.title%>" id="title">
@@ -22,6 +22,21 @@
 
   <label for="content">Content</label>
   <textarea name="post[content]" value="<%=@post.title%>" id="content"></textarea>
+
+  <br><br>
+
+  <input type="hidden" name="post[sub_ids][]" value="">
+  <% Sub.all.each do |sub| %>
+    <label>
+      <input
+        type="checkbox"
+        name="post[sub_ids][]"
+        value="<%= sub.id %>"
+        <%= "checked" if @post.sub_ids.include?(sub.id) %>>
+      <%= sub.title %>
+    </label>
+    <br>
+  <% end %>
 
   <br><br>
 

@@ -3,15 +3,18 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6, allow_nil: true}
   before_validation :ensure_session_token
 
-  has_many :subs,
-  primary_key: :id,
-  foreign_key: :moderator_id,
-  class_name: :Sub
+  has_many(
+    :subs,
+    class_name: "Sub",
+    foreign_key: :moderator_id,
+    primary_key: :id,
+    inverse_of: :moderator
+  )
 
   has_many :posts,
   primary_key: :id,
-  foreign_key: :author_id,
-  class_name: :Post
+  foreign_key: :author_id, 
+  inverse_of: :author
 
   attr_reader :password
 
