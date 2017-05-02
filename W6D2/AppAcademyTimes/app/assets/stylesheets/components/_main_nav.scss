@@ -1,18 +1,25 @@
 .main-nav {
-
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
 }
 
 .left-nav > ul,
 .right-nav > ul {
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .left-nav > ul > li {
-
+  padding: 7px 9px;
+  font: 11px "nyt-franklin",arial,helvetica,sans-serif;
+  text-transform: uppercase;
 }
 
 .right-nav > ul > li {
-
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .right-nav > ul > li:last-of-type {
@@ -21,14 +28,14 @@
 
 .left-nav > ul > li:hover,
 .right-nav > ul > li:last-of-type:hover {
-
+  background-color: $lightest-gray;
 }
 
 .left-nav span {
-
+  padding: 5px;
 }
 
 
 .right-nav i {
-
+  font-size: 20px;
 }
