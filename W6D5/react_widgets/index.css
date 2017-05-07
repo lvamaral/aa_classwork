@@ -1,0 +1,49 @@
+html body div h1 h2 {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+body {
+  width: 600px;
+}
+
+h1, h2 {
+  font-family: 'Kanit', sans-serif;
+  text-shadow: 2px 2px white;
+  padding: 10px;
+}
+
+h1 {
+  text-align: center;
+}
+
+div.inner-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+div.clock {
+  background-image: url("http://i.telegraph.co.uk/multimedia/archive/03330/kim-jong-un_3330074b.jpg");
+  background-size: cover;
+}
+
+div.weather {
+  background-image: url("http://wikitravel.org/upload/en/thumb/1/14/Pyongyang.jpg/510px-Pyongyang.jpg");
+  background-size: cover;
+}
